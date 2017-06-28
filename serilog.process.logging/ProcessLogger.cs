@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Serilog;
 
-namespace Serilog.ProcessLogging
+namespace Serilog.Process.Logging
 {
     public class ProcessLogger
     {
@@ -18,12 +18,12 @@ namespace Serilog.ProcessLogging
         public ILogger Log { get; }
         public TimeSpan Delay { get; set; } = TimeSpan.FromMinutes(1);
 
-        private readonly Process _process;
+        private readonly System.Diagnostics.Process _process;
         private Task _runner;
 
         public ProcessLogger(ILogger logger)
         {
-            _process = Process.GetCurrentProcess();
+            _process = System.Diagnostics.Process.GetCurrentProcess();
             Log = logger.ForContext("Process", _process.Id);
         }
 

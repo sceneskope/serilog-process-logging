@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Serilog.ProcessLogging
+namespace Serilog.Process.Logging
 {
     public class ProcessInformation
     {
@@ -25,7 +25,7 @@ namespace Serilog.ProcessLogging
 
         private static int ToMb(long value) => (int)(value / 1048576L);
 
-        public ProcessInformation(Process process)
+        public ProcessInformation(System.Diagnostics.Process process)
         {
             GC0 = GC.CollectionCount(0);
             GC1 = GC.CollectionCount(1);
