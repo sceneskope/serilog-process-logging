@@ -43,7 +43,7 @@ namespace Serilog.Process.Logging
                 }
                 catch (Exception ex) when (!(ex is OperationCanceledException))
                 {
-                    Log.Warning(ex, "Failed to dump: {exception}", ex.Message);
+                    Log.Warning(ex, "Failed to dump: {Exception}", ex.Message);
                 }
                 await Task.Delay(Delay, ct).ConfigureAwait(false);
             }
@@ -70,7 +70,7 @@ namespace Serilog.Process.Logging
             }
 
             _latestInformation = information;
-            logger.Information("Process @ {ram} ({working}) used {processor} seconds", information.TotalMemory, information.WorkingSet, deltaProcessorTime.TotalSeconds);
+            logger.Information("Process @ {Ram} ({Working}) used {Processor} seconds", information.TotalMemory, information.WorkingSet, deltaProcessorTime.TotalSeconds);
         }
     }
 }
